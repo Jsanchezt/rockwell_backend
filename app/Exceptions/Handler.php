@@ -46,6 +46,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+        if (get_class($exception) === 'Illuminate\Validation\ValidationException'){
+            return response()->json(['status' => 'error', 'message' => $exception->getMessage(), 'errors' => $exception->errors()], 422);
+        }
+
+        if (get_class($exception) === 'Illuminate\Database\QueryException'){
+            return response()->json(['status' => 'error', 'message' => "db error"], 422);
+        }
+
+        if (get_class($exception) === 'App\Exceptions\UserRegistered'){
+            return response()->json(['status' => 'error', 'message' => "user already exists"], 423);
+        }
+
+
         return parent::render($request, $exception);
     }
 }

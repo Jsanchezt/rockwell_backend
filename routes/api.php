@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->post('/files', function (Request $request) {
     if ($request->hasFile('images')) {
-        $file = $request->file('images')->store("public/categories");
+        $file = $request->file('images')->store("public/files");
         return [
             "success"=> true,
             "url"=> env('APP_FILES_URL').Storage::url($file)
@@ -31,6 +31,10 @@ Route::middleware('auth:api')->post('/files', function (Request $request) {
         "success"=> false
     ];
 });
+
+
+Route::post('/create_user', 'UserController@store');
+
 
 Route::get('/products/list', 'ProductController@index_available');
 Route::get('/products/best_seller', 'ProductController@best_seller');
@@ -50,7 +54,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('/products', 'ProductController@store');
     Route::get('/products/{product_id}', 'ProductController@show');
     Route::put('/products/{product_id}', 'ProductController@update');
-    
+
     Route::get('/sales', 'SalesController@index');
     Route::get('/sales/{id}', 'SalesController@show');
     Route::post('/sales/{id}/change_status/{status}', 'SalesController@changeStatus');
