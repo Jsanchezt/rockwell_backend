@@ -13,7 +13,9 @@ class UserController extends Controller
      * @throws UserRegistered
      */
     public function store(UserRequest $request){
-        $pre_user = User::where('email',  $request->get('email'));
+        $pre_user = User::where('email', $request->get('email'))
+            ->orWhere('phone', $request->get('phone'))
+            ->first();
         if ($pre_user) throw new UserRegistered(); else{
         $user = new User();
         $user->fill($request->all());
