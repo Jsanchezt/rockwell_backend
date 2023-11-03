@@ -24,10 +24,8 @@ class SaleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'products' => 'required'
         ];
     }
 }

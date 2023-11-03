@@ -20,7 +20,8 @@ class SalesController extends Controller
     public function store(SaleRequest $request)
     {
         $sale = new Sale();
-        $attrs = $request->all();
+        $user = $request->user();
+        $attrs = array_merge($request->all(), $user->toArray());
         $products = Product::select(['id','name','price','category','image_principal'])->whereIn('id', $attrs['products'])
                 ->get();
         $total = 0;
@@ -28,6 +29,7 @@ class SalesController extends Controller
             $total += floatval($prod['price']);
         }
         $sale->fill(array_merge($attrs,[
+            'user_id'=> $user->getKey(),
             'status' => 'pending',
             'products' => json_encode($products),
             'total' => $total,
@@ -66,5 +68,13 @@ class SalesController extends Controller
         }
         $sale->delete();
         return ["deleted"=>"ok"];
+    }
+
+
+    public function my_sales(Request $request)
+    {
+        $user = $request->user();
+        $user_id = $user->getKey();
+        return Sale::where('user_id', $user_id)->get();
     }
 }
