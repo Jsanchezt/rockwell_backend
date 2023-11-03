@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\UserRegistered;
 use App\Http\Requests\UserRequest;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Mockery\Exception;
 
 class UserController extends Controller
@@ -19,6 +20,7 @@ class UserController extends Controller
         if ($pre_user) throw new UserRegistered(); else{
         $user = new User();
         $user->fill($request->all());
+        $user->password = Hash::make($request->get('password'));
         $user->save();
         return $user;
         }
