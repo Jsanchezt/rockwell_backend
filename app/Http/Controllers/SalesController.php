@@ -75,6 +75,6 @@ class SalesController extends Controller
     {
         $user = $request->user();
         $user_id = $user->getKey();
-        return Sale::where('user_id', $user_id)->get();
+        return Sale::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
     }
 }
