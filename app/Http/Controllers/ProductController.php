@@ -25,7 +25,20 @@ class ProductController extends Controller
     public function index_available()
     {
         return Product::select(['id','name','brand','price','image_principal'])->where('available', "1")->get();
-      
+
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function byCategory($category_code)
+    {
+        return Product::select(['id','name','brand','price','image_principal'])
+            ->where('available', "1")
+            ->where('category', $category_code)
+            ->get();
+
     }
 
 

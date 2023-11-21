@@ -39,7 +39,10 @@ Route::post('/create_user', 'UserController@store');
 Route::get('/products/list', 'ProductController@index_available');
 Route::get('/products/best_seller', 'ProductController@best_seller');
 Route::get('/product_detail/{product_id}', 'ProductController@show');
+
 Route::get('/categories/list', 'CategoryController@index');
+
+Route::get('/categories/{category_code}/product', 'ProductController@byCategory');
 
 
 
