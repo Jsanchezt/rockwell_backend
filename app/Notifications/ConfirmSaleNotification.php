@@ -13,16 +13,18 @@ class ConfirmSaleNotification extends Notification
 
     public $nameUser;
     public $products;
+    public $total;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($nameUser, $products)
+    public function __construct($nameUser, $products, $total)
     {
         $this->nameUser = $nameUser;
         $this->products = $products;
+        $this->total = $total;
     }
 
     /**
@@ -53,8 +55,10 @@ class ConfirmSaleNotification extends Notification
         foreach ($this->products as $pro){
             $mtp->line($pro->name." - ".$pro->price);
         }
+        $mtp->line("Total - ".$this->total);
         $mtp->action('Ver detalle', url('https://www.rockwell.com.mx/dashboard'));
         $mtp->line('Cualquier duda podrias contactarnos en contacto@rockwell.com.mx');
+        $mtp->salutation("rockwell.com.mx");
 
 
         return $mtp;
