@@ -18,8 +18,8 @@ class AdminUser
         $user = $request->user();
 
 
-        if ($user && $user->role === 'admin') {
-            return response()->json(['error' => 'Acceso no autorizado'], 401);
+        if ($user && $user->role !== 'admin') {
+            return response()->json(['error' => 'Acceso no autorizado'], 500);
         }
 
         return $next($request);
