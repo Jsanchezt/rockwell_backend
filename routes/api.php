@@ -34,16 +34,20 @@ Route::middleware('auth:api')->post('/files', function (Request $request) {
 
 
 Route::post('/create_user', 'UserController@store');
-
-
 Route::get('/products/list', 'ProductController@index_available');
 Route::get('/products/best_seller', 'ProductController@best_seller');
 Route::get('/product_detail/{product_id}', 'ProductController@show');
-
 Route::get('/categories/list', 'CategoryController@index');
-
 Route::get('/categories/{category_code}/product', 'ProductController@byCategory');
 
+
+
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/my_sales', 'SalesController@my_sales');
+    Route::post('/sales', 'SalesController@store');
+
+});
 
 
 Route::middleware(['auth:api','admin'])->group(function () {
@@ -63,12 +67,12 @@ Route::middleware(['auth:api','admin'])->group(function () {
     Route::get('/products/{product_id}', 'ProductController@show');
     Route::put('/products/{product_id}', 'ProductController@update');
 
-    Route::post('/sales', 'SalesController@store');
+
     Route::get('/sales', 'SalesController@index');
     Route::get('/sales/{id}', 'SalesController@show');
     Route::post('/sales/{id}/change_status/{status}', 'SalesController@changeStatus');
     Route::delete('/sales/{id}', 'SalesController@destroy');
-    Route::get('/my_sales', 'SalesController@my_sales');
+
 
 
 });
