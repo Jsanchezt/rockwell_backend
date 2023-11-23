@@ -45,15 +45,17 @@ class ConfirmSaleNotification extends Notification
     public function toMail($notifiable)
     {
         $mtp =  (new MailMessage)
+                    ->success()
                     ->greeting('Hola '. $this->nameUser)
                     ->line('Gracias por tu compra')
-                    ->line('Tu compra fue confirmada, en un momento te vamos a contactar para verificar tu metodo de pago')
-                    ->action('Ver detalle', url('https://www.rockwell.com.mx/dashboard'))
-                    ->line('Cualquier duda podrias contactarnos en contacto@rockwell.com.mx');
+                    ->line('Tu compra fue confirmada, en un momento te vamos a contactar para verificar tu metodo de pago');
+
         foreach ($this->products as $pro){
             $mtp->line($pro->name." - ".$pro->price);
         }
-        $mtp->line("");
+        $mtp->action('Ver detalle', url('https://www.rockwell.com.mx/dashboard'));
+        $mtp->line('Cualquier duda podrias contactarnos en contacto@rockwell.com.mx');
+
 
         return $mtp;
     }
