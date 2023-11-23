@@ -14,7 +14,7 @@ class SalesController extends Controller
 
     public function index()
     {
-        return Sale::whereIn('id', ['pending','confirm'])->get();
+        return Sale::whereIn('status', ['pending','confirm'])->get();
 
     }
 
