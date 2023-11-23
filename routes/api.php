@@ -47,6 +47,11 @@ Route::get('/categories/{category_code}/product', 'ProductController@byCategory'
 
 
 Route::middleware(['auth:api','admin'])->group(function () {
+
+    Route::get('me', function (Request $request) {
+        return $request->user();
+    });
+
     Route::get('/categories/{category_id}', 'CategoryController@show');
     Route::get('/categories', 'CategoryController@index');
     Route::post('/categories', 'CategoryController@store');
