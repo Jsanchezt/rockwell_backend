@@ -14,7 +14,14 @@ class SalesController extends Controller
 
     public function index()
     {
-        return Sale::latest()->get();
+        return Sale::whereIn('id', ['pending','confirm'])->get();
+
+    }
+
+
+    public function index_closed()
+    {
+        return Sale::where('status','closed')->get();
 
     }
 

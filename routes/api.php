@@ -69,6 +69,9 @@ Route::middleware(['auth:api','admin'])->group(function () {
 
 
     Route::get('/sales', 'SalesController@index');
+    Route::get('/sales/closed', 'SalesController@index_closed');
+
+
     Route::get('/sales/{id}', 'SalesController@show');
     Route::post('/sales/{id}/change_status/{status}', 'SalesController@changeStatus');
     Route::delete('/sales/{id}', 'SalesController@destroy');
