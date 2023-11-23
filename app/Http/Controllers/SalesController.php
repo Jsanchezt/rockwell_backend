@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaleRequest;
+use App\Notifications\ConfirmSaleNotification;
 use App\Product;
 use App\Sale;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -35,6 +36,7 @@ class SalesController extends Controller
             'total' => $total,
         ]));
         $sale->save();
+        $user->notify(new ConfirmSaleNotification());
         return $sale;
     }
 
