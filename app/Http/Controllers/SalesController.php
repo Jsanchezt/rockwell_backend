@@ -25,6 +25,12 @@ class SalesController extends Controller
 
     }
 
+    public function index_canceled()
+    {
+        return Sale::where('status','canceled')->orderBy('id', 'desc')->get();
+
+    }
+
     public function store(SaleRequest $request)
     {
         $sale = new Sale();

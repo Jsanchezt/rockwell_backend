@@ -70,6 +70,7 @@ Route::middleware(['auth:api','admin'])->group(function () {
 
     Route::get('/sales', 'SalesController@index');
     Route::get('/sales/closed', 'SalesController@index_closed');
+    Route::get('/sales/canceled', 'SalesController@index_canceled');
 
 
     Route::get('/sales/{id}', 'SalesController@show');
