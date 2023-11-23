@@ -36,7 +36,7 @@ class SalesController extends Controller
             'total' => $total,
         ]));
         $sale->save();
-        $user->notify(new ConfirmSaleNotification($user->name, $products));
+        $user->notify(new ConfirmSaleNotification($user->name, $products, $total));
         return $sale;
     }
 
