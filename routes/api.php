@@ -77,6 +77,9 @@ Route::middleware(['auth:api','admin'])->group(function () {
 
 
     Route::post('/sales/{id}/change_status/{status}', 'SalesController@changeStatus');
+    Route::post('/sales/{id}/shipment', 'SalesController@saveShipment');
+    Route::post('/sales/{id}/comments', 'SalesController@saveComment');
+
     Route::delete('/sales/{id}', 'SalesController@destroy');
 
 
