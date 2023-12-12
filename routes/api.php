@@ -68,12 +68,14 @@ Route::middleware(['auth:api','admin'])->group(function () {
     Route::put('/products/{product_id}', 'ProductController@update');
 
 
-    
+
     Route::get('/sales/{code}', 'SalesController@index');
 
 
 
-    Route::get('/sales/{id}', 'SalesController@show');
+    Route::get('/sales/detail/{id}', 'SalesController@show');
+
+
     Route::post('/sales/{id}/change_status/{status}', 'SalesController@changeStatus');
     Route::delete('/sales/{id}', 'SalesController@destroy');
 
