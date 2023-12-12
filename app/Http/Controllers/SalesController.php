@@ -64,7 +64,7 @@ class SalesController extends Controller
     }
 
 
-    public function saveShipment($id, $request)
+    public function saveShipment(Request $request, $id)
     {
         $sale = Sale::find($id);
         if (!$sale){
@@ -77,7 +77,7 @@ class SalesController extends Controller
     }
 
 
-    public function saveComment($id, $request)
+    public function saveComment(Request $request, $id)
     {
         $sale = Sale::find($id);
         if (!$sale){
