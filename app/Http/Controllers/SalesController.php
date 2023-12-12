@@ -12,24 +12,13 @@ use Illuminate\Http\Request;
 class SalesController extends Controller
 {
 
-    public function index()
+
+    public function index($code)
     {
-        return Sale::whereIn('status', ['pending','confirm'])->orderBy('id', 'desc')->get();
+        return Sale::where('status', $code)->orderBy('id', 'desc')->get();
 
     }
 
-
-    public function index_closed()
-    {
-        return Sale::where('status','closed')->orderBy('id', 'desc')->get();
-
-    }
-
-    public function index_canceled()
-    {
-        return Sale::where('status','canceled')->orderBy('id', 'desc')->get();
-
-    }
 
     public function store(SaleRequest $request)
     {

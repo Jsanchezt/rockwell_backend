@@ -68,9 +68,9 @@ Route::middleware(['auth:api','admin'])->group(function () {
     Route::put('/products/{product_id}', 'ProductController@update');
 
 
-    Route::get('/sales', 'SalesController@index');
-    Route::get('/sales/closed', 'SalesController@index_closed');
-    Route::get('/sales/canceled', 'SalesController@index_canceled');
+    
+    Route::get('/sales/{code}', 'SalesController@index');
+
 
 
     Route::get('/sales/{id}', 'SalesController@show');
