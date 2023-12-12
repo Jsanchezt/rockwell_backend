@@ -64,25 +64,27 @@ class SalesController extends Controller
     }
 
 
-    public function saveShipment($id, $status)
+    public function saveShipment($id, $request)
     {
         $sale = Sale::find($id);
         if (!$sale){
             throw new ModelNotFoundException();
         }
-        $sale->fill(['shipment'=>$status]);
+        $data = $request->all();
+        $sale->fill(['shipment'=> $data['shipment'] ]);
         $sale->save();
         return $sale;
     }
 
 
-    public function saveComment($id, $status)
+    public function saveComment($id, $request)
     {
         $sale = Sale::find($id);
         if (!$sale){
             throw new ModelNotFoundException();
         }
-        $sale->fill(['comments'=>$status]);
+        $data = $request->all();
+        $sale->fill(['comments'=> $data['comments'] ]);
         $sale->save();
         return $sale;
     }
