@@ -23,6 +23,6 @@ Route::get('/password/reset/{token}',  function () {
 });
 
 
-Route::post('/password/reset/{token}',  function () {
-    return view('welcome');
+Route::post('/password/update}',  function () {
+    return "ok";
 })->name('password.update');
