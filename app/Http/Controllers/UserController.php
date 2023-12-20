@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\UserRegistered;
 use App\Http\Requests\UserRequest;
+use App\Notifications\RegisterNotification;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Mockery\Exception;
@@ -22,6 +23,7 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->get('password'));
         $user->save();
+        $user->notify(new RegisterNotification($request->get('name')));
         return $user;
         }
     }
