@@ -12,6 +12,7 @@ class CustomResetPasswordNotification extends ResetPasswordNotification
             ->subject('Restablecer contraseña')
             ->greeting('Hola, has solicitado restablecer tu contraseña.')
             ->action('Restablecer Contraseña', url('password/reset', $this->token))
-            ->line('Si no solicitaste esto, puedes ignorar este correo.');
+            ->line('Si no solicitaste esto, puedes ignorar este correo.')
+            ->salutation("rockwell.com.mx");
     }
 }
