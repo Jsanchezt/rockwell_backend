@@ -59,6 +59,10 @@ class Handler extends ExceptionHandler
             return response()->json(['status' => 'error', 'message' => "user already exists"], 423);
         }
 
+        if (get_class($exception) === 'App\Exceptions\UserNotFound'){
+            return response()->json(['status' => 'error', 'message' => "user not found"], 404);
+        }
+
 
         return parent::render($request, $exception);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UserNotFound;
 use App\Exceptions\UserRegistered;
 use App\Http\Requests\UserRequest;
 use App\Notifications\RegisterNotification;
@@ -35,7 +36,7 @@ class UserController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (!$user) {
-            throw new Exception('User not found');
+            throw new UserNotFound('User not found');
         }
 
         $token = Password::createToken($user);
