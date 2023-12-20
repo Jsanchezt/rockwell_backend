@@ -33,6 +33,10 @@ Route::middleware('auth:api')->post('/files', function (Request $request) {
 });
 
 
+Route::post('/user/reset', 'UserController@sendResetLink');
+
+
+
 Route::post('/create_user', 'UserController@store');
 Route::get('/products/list', 'ProductController@index_available');
 Route::get('/products/best_seller', 'ProductController@best_seller');
