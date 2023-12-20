@@ -110,16 +110,25 @@
             <i class="bx bxs-user-circle"></i>
 
             <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Correo Electrónico" required autofocus>
+            @error('email')
+            <span role="alert">{{ $message }}</span>
+            @enderror
         </div>
 
 
         <div class="user">
             <i class="bx bxs-lock-alt"></i>
             <input id="password" type="password" name="password" required placeholder="Contraseña" autocomplete="new-password">
+            @error('password')
+            <span role="alert">{{ $message }}</span>
+            @enderror
         </div>
         <div class="pass">
             <i class="bx bxs-lock-alt"></i>
             <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+            @error('password_confirmation')
+            <span role="alert">{{ $message }}</span>
+            @enderror
         </div>
 
         @if(session('status'))
