@@ -74,6 +74,7 @@
             display: flex;
             justify-content: center;
             margin-top: 25px;
+            margin-bottom: 25px;
         }
         .btn button {
             width: 100%;
