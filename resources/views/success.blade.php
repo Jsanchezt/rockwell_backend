@@ -75,7 +75,7 @@
             margin-top: 25px;
             margin-bottom: 25px;
         }
-        .btn button {
+        .btn a {
             width: 100%;
             border: none;
             height: 35px;
