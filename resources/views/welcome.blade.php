@@ -27,7 +27,6 @@
         }
         .container {
             width: 400px;
-            height: 330px;
             background-color: #fff;
             margin: 150px auto;
             border-radius: 11px;
@@ -108,7 +107,7 @@
 
 
         <div class="user">
-            <i class="bx bxs-lock-alt"></i>
+            <i class="bx bxs-user-circle"></i>
 
             <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Correo Electrónico" required autofocus>
         </div>
