@@ -96,24 +96,23 @@
 <body>
 <div class="container">
     <div class="top-header">
-        <h3>Welcome back</h3>
-        <p>Enter your credentials to access your account</p>
+        <h3>Rockwell</h3>
+        <p>Ahora puedes restablecer tus credenciales de acceso</p>
     </div>
     <form action="">
         <div class="user">
             <i class="bx bxs-user-circle"></i>
-            <input type="text" placeholder="Enter your username" />
+            <input type="text" placeholder="Password" />
         </div>
         <div class="pass">
             <i class="bx bxs-lock-alt"></i>
-            <input type="password" placeholder="Enter your password" />
+            <input type="password" placeholder="Confirma tu password" />
         </div>
     </form>
     <div class="btn">
-        <button>Sign in</button>
+        <button>Continuar</button>
     </div>
 </div>
-<p class="last">Forgot your password? <a href="#"> Reset Password </a></p>
-<script src="/app.js"></script>
+
 </body>
 </html>
