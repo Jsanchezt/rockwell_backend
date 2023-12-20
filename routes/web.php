@@ -29,6 +29,11 @@ Route::get('/password/reset/{token}',  function ($token) {
 });
 
 
+Route::get('/password/success',  function ($token) {
+    return view('success');
+})->name('dashboard');
+
+
 Route::post('/password/update}',  function (Request $request) {
     $request->validate([
         'email' => 'required|email',
@@ -49,6 +54,6 @@ Route::post('/password/update}',  function (Request $request) {
 
     // Redirigir según el estado del restablecimiento
     return $status == Password::PASSWORD_RESET
-        ? redirect()->away('https://www.rockwell.com.mx/sing_in')->with('status', __($status))
+        ? redirect()->route('dashboard')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->name('password.update');

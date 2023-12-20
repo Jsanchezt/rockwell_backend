@@ -97,36 +97,11 @@
 <div class="container">
     <div class="top-header">
         <h3>Rockwell</h3>
-        <p>Ahora puedes restablecer tu contraseña de acceso</p>
+        <p>¡Tu contraseña se ha restablecido exitosamente!</p>
     </div>
-    <form method="POST" action="{{ route('password.update') }}">
-        @csrf
-
-        <input type="hidden" name="token" value="{{ $token }}">
-
-
-
-        <div class="user">
-            <i class="bx bxs-user-circle"></i>
-
-            <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Correo Electrónico" required autofocus>
-        </div>
-
-
-        <div class="user">
-            <i class="bx bxs-lock-alt"></i>
-            <input id="password" type="password" name="password" required placeholder="Contraseña" autocomplete="new-password">
-        </div>
-        <div class="pass">
-            <i class="bx bxs-lock-alt"></i>
-            <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-        </div>
-
-
-        <div class="btn" type="submit">
-            <button>Restablecer Contraseña</button>
-        </div>
-    </form>
+    <div class="btn" >
+        <a href="https://www.rockwell.com.mx/sing_in">Ir a Rockwell</a>
+    </div>
 
 
 </div>
