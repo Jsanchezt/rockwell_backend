@@ -98,12 +98,19 @@
             margin-top: 7px;
             display: block;
         }
+        img{
+            width: 80%;
+            margin: auto;
+        }
+        .top-header{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="top-header">
-        <h3>Rockwell</h3>
+        <img src="https://files.rockwell.com.mx/storage/logo.svg" alt="">
         <p>Ahora puedes restablecer tu contraseña de acceso</p>
     </div>
     <form method="POST" action="{{ route('password.update') }}">

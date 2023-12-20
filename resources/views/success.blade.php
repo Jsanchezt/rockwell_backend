@@ -33,6 +33,9 @@
             padding: 40px 50px;
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         }
+        .top-header{
+            text-align: center;
+        }
         /* top-header */
         .top-header h3 {
             text-align: center;
@@ -95,12 +98,15 @@
             bottom: 120px;
             font-size: 12px;
         }
+        img{
+            width: 80%;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="top-header">
-        <h3>Rockwell</h3>
         <img src="https://files.rockwell.com.mx/storage/logo.svg" alt="">
         <p>¡Tu contraseña se ha restablecido exitosamente!</p>
     </div>
