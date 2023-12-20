@@ -47,4 +47,10 @@ class UserController extends Controller
         ]);
     }
 
+
+    public function restToken($token){
+        return $token;
+
+    }
+
 }
