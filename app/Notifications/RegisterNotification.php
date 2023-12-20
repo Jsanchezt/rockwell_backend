@@ -45,6 +45,7 @@ class RegisterNotification extends Notification
     public function toMail($notifiable)
     {
         $mtp =  (new MailMessage)
+                    ->subject('Registro Exitoso')
                     ->success()
                     ->greeting('Hola '. $this->nameUser)
                     ->line('Gracias por tu registrarte en Rockwell')

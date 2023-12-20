@@ -47,6 +47,7 @@ class ConfirmSaleNotification extends Notification
     public function toMail($notifiable)
     {
         $mtp =  (new MailMessage)
+                    ->subject('Compra Exitosa')
                     ->success()
                     ->greeting('Hola '. $this->nameUser)
                     ->line('Gracias por tu compra')
