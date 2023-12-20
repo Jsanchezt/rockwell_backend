@@ -45,8 +45,6 @@ Route::get('/categories/list', 'CategoryController@index');
 Route::get('/categories/{category_code}/product', 'ProductController@byCategory');
 
 
-Route::get('/password/reset/{token}', 'UserController@restToken');
-
 
 
 

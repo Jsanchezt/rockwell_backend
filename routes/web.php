@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
+    response()->json([
+        'api'=> 'traxporta'
+    ]);
+});
+
+
+Route::get('/password/reset/{token}',  function () {
     return view('welcome');
 });
