@@ -9,7 +9,8 @@ class CustomResetPasswordNotification extends ResetPasswordNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Hola, has solicitado restablecer tu contraseña.')
+            ->subject('Restablecer contraseña')
+            ->greeting('Hola, has solicitado restablecer tu contraseña.')
             ->action('Restablecer Contraseña', url('password/reset', $this->token))
             ->line('Si no solicitaste esto, puedes ignorar este correo.');
     }
