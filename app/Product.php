@@ -16,6 +16,7 @@ class Product extends Model
         'best_seller' => false,
         'available' => true,
         'ranking' => 5,
+        'quantity' => 10,
         'video' => "",
         'images' => "[]",
     ];
