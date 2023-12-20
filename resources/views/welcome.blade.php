@@ -27,7 +27,7 @@
         }
         .container {
             width: 400px;
-            height: 300px;
+            height: 330px;
             background-color: #fff;
             margin: 150px auto;
             border-radius: 11px;
