@@ -83,6 +83,10 @@
             color: #fff;
             border-radius: 6px;
             cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         /* button */
         p.last {
@@ -97,6 +101,7 @@
 <div class="container">
     <div class="top-header">
         <h3>Rockwell</h3>
+        <img src="https://files.rockwell.com.mx/storage/logo.svg" alt="">
         <p>¡Tu contraseña se ha restablecido exitosamente!</p>
     </div>
     <div class="btn" >
