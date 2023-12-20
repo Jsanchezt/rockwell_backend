@@ -9,7 +9,7 @@ class Product extends Model
     protected $table = 'product';
     protected $fillable = [
         "name", "price", "brand", "category", "best_seller",
-        "available","color","ranking","description","old_price","image_principal","images","video"
+        "available","color","ranking","description","old_price","image_principal","images","video", "quantity"
     ];
 
     protected $attributes = [
