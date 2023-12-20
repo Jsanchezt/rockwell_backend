@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\ValidationException;
 
 
 Route::get('/', function () {
@@ -35,11 +36,16 @@ Route::get('/password/success',  function ($token) {
 
 
 Route::post('/password/update}',  function (Request $request) {
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
-        'token' => 'required',
-    ]);
+    try {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+            'token' => 'required',
+        ]);
+    } catch (ValidationException $e) {
+        return back()->withErrors($e->errors())->withInput();
+    }
+
 
     $status = Password::reset(
         $request->only('email', 'password', 'password_confirmation', 'token'),
