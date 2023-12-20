@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::get('/password/reset/{token}',  function () {
     return view('welcome');
 });
+
+
+Route::post('/password/reset/{token}',  function () {
+    return view('welcome');
+})->name('password.update');

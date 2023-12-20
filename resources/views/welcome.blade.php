@@ -123,7 +123,7 @@
             <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
         </div>
 
-       
+
         <div class="btn" type="submit">
             <button>Restablecer Contraseña</button>
         </div>
