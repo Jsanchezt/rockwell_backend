@@ -30,7 +30,7 @@ Route::get('/password/reset/{token}',  function ($token) {
 });
 
 
-Route::get('/password/success',  function ($token) {
+Route::get('/password/success',  function () {
     return view('success');
 })->name('dashboard');
 
