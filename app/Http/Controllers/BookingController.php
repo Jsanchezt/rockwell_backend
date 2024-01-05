@@ -44,4 +44,14 @@ class BookingController extends Controller
         }, ARRAY_FILTER_USE_KEY);
     }
 
+    function index(){
+        return Booking::where('date', date("Y-m-d") )->orderBy('id', 'desc')->get();
+    }
+
+
+    function index_by_date($date){
+        return Booking::where('date', $date )->orderBy('id', 'desc')->get();
+    }
+
+
 }
