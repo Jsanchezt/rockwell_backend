@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Notifications\ReservationReceivedAdminNotification;
 use App\Notifications\ReservationReceivedNotification;
 use Illuminate\Http\Request;
 use App\TemporalUser;
@@ -21,6 +22,7 @@ class BookingController extends Controller
         /** @var TYPE_NAME $exception */
         try {
             $temporalUser = new TemporalUser($request->get('email'));
+            $admin = new TemporalUser('char2296@hotmail.com');
 
             $temporalUser->notify(new ReservationReceivedNotification(
                 implode(',',$this->getServices($request->all())),
@@ -29,6 +31,15 @@ class BookingController extends Controller
                 $request->get('email'), $request->get('phone'),
                 $request->get('message')
             ));
+
+            $admin->notify(new ReservationReceivedAdminNotification(
+                implode(',',$this->getServices($request->all())),
+                $request->get('staff'), $request->get('date'),
+                $request->get('selectTime'), $request->get('name'),
+                $request->get('email'), $request->get('phone'),
+                $request->get('message')
+            ));
+
 
         } catch (\Exception $exception){
             info($exception->getMessage());
