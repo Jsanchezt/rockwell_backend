@@ -24,7 +24,7 @@ Route::middleware('auth:api')->post('/files', function (Request $request) {
         $file = $request->file('images')->store("public/files");
         return [
             "success"=> true,
-            "url"=> env('APP_FILES_URL').Storage::url($file)
+            "url"=> 'http://files.rockwell.com.mx'.Storage::url($file)
         ];
     }
     return [
