@@ -59,17 +59,17 @@ class ReservationReceivedAdminNotification extends Notification
             ->line('Fecha: ' . $this->date)
             ->line('Hora: ' . $this->selectTime)
             ->line('Mensaje: ' . $this->message)
-            ->action('Confirmar', url($this->sendMessageActive($this->name, $this->service, $this->date, $this->selectTime)))
+            ->action('Confirmar', url($this->sendMessageActive($this->name, $this->phone, $this->date, $this->selectTime, $this->service)))
             ->success()
             ->salutation('Gracias por elegirnos')
             ->salutation('rockwell.com.mx');
     }
 
-    function sendMessageActive($name,$phone,$date, $select_time) {
+    function sendMessageActive($name,$phone,$date, $select_time,$service) {
         $baseLink = "https://wa.me/+52" . $phone;
         $message = "¡Hola {$name}, soy Samuel del equipo de *Rockwell*\n";
         $message .= "Te contacto porque hemos recibido tu reservación el *$date* a las *$select_time*\n";
-        $message .= "Para los servicios de : *service*\n";
+        $message .= "Para los servicios de : *$service*\n";
         $message .= "¿Podrías confirmar tu asistencia, por favor?\n";
 
         $encodedMessage = urlencode($message);

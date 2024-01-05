@@ -27,7 +27,7 @@ class BookingController extends Controller
             $temporalUser->notify(new ReservationReceivedNotification(
                 implode(',',$this->getServices($request->all())),
                 $request->get('staff'), $request->get('date'),
-                $request->get('selectTime'), $request->get('name'),
+                $request->get('select_time'), $request->get('name'),
                 $request->get('email'), $request->get('phone'),
                 $request->get('message')
             ));
@@ -35,7 +35,7 @@ class BookingController extends Controller
             $admin->notify(new ReservationReceivedAdminNotification(
                 implode(',',$this->getServices($request->all())),
                 $request->get('staff'), $request->get('date'),
-                $request->get('selectTime'), $request->get('name'),
+                $request->get('select_time'), $request->get('name'),
                 $request->get('email'), $request->get('phone'),
                 $request->get('message')
             ));
