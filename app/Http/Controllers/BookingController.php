@@ -24,10 +24,10 @@ class BookingController extends Controller
 
             $temporalUser->notify(new ReservationReceivedNotification(
                 implode(',',$this->getServices($request->all())),
-                $request->all('staff'), $request->all('date'),
-                $request->all('selectTime'), $request->all('name'),
-                $request->all('email'), $request->all('phone'),
-                $request->all('message')
+                $request->get('staff'), $request->get('date'),
+                $request->get('selectTime'), $request->get('name'),
+                $request->get('email'), $request->get('phone'),
+                $request->get('message')
             ));
 
         } catch (\Exception $exception){
