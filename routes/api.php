@@ -89,4 +89,7 @@ Route::middleware(['auth:api','admin'])->group(function () {
 
 
 
+    Route::get('/booking', 'BookingController@index');
+    Route::get('/booking/{date}', 'BookingController@index_by_date');
+
 });
