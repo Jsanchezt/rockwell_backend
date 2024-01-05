@@ -46,7 +46,7 @@ Route::get('/categories/{category_code}/product', 'ProductController@byCategory'
 
 
 
-
+Route::post('/booking', 'BookingController@store');
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/my_sales', 'SalesController@my_sales');
