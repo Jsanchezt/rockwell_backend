@@ -20,7 +20,7 @@ class BookingController extends Controller
 
         /** @var TYPE_NAME $exception */
         try {
-            $temporalUser = new TemporalUser($request->all('email'));
+            $temporalUser = new TemporalUser($request->get('email'));
 
             $temporalUser->notify(new ReservationReceivedNotification(
                 implode(',',$this->getServices($request->all())),
